@@ -45,7 +45,7 @@ class Manager
         @gross_sales += row['gross_sales'].to_f
         @net_profit += row['net_profit'].to_f
         @items_sold += row['total_items'].to_i
-        @manager_data = row
+        @manager_data << row
       end
     end 
   end
@@ -76,7 +76,15 @@ class Manager
     if @totals.reduce(:+) == 0
       puts "No sales data found."
     else
-      puts "Gross Sales: $#{format_number(@totals[0])} \nNet Profit: $#{format_number(@totals[1])} \nItems Sold: #{@totals[2]}"
+      @manager_data.each do |order|
+        i = 0
+        while i < @manager_data.length
+          puts "Date: #{@manager_data[i][3]} \nTime: #{@manager_data[i][4]} \nItems Sold: #{@manager_data[i][2]} \nGross Sales: #{@manager_data[i][0]} \nNet Profit: #{@manager_data[i][1]}\n \n"
+          i += 1
+        end
+      end
+      puts "=======Overall Totals=======
+        \nGross Sales: $#{format_number(@totals[0])} \nNet Profit: $#{format_number(@totals[1])} \nItems Sold: #{@totals[2]}"
     end
   end
  
