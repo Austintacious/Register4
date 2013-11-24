@@ -76,12 +76,10 @@ class Manager
     if @totals.reduce(:+) == 0
       puts "No sales data found."
     else
-      @manager_data.each do |order|
-        i = 0
-        while i < @manager_data.length
-          puts "Date: #{@manager_data[i][3]} \nTime: #{@manager_data[i][4]} \nItems Sold: #{@manager_data[i][2]} \nGross Sales: #{@manager_data[i][0]} \nNet Profit: #{@manager_data[i][1]}\n \n"
-          i += 1
-        end
+      i = 0
+      while i < @manager_data.length
+        puts "\nDate: #{@manager_data[i][3]} \nTime: #{@manager_data[i][4]} \nItems Sold: #{@manager_data[i][2]} \nGross Sales: $#{format_number(@manager_data[i][0])} \nNet Profit: $#{format_number(@manager_data[i][1])}\n \n"
+        i += 1
       end
       puts "=======Overall Totals=======
         \nGross Sales: $#{format_number(@totals[0])} \nNet Profit: $#{format_number(@totals[1])} \nItems Sold: #{@totals[2]}"
