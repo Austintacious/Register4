@@ -76,7 +76,7 @@ class Manager
     if @totals.reduce(:+) == 0
       puts "No sales data found."
     else
-      puts "Gross Sales: $#{format_number(@totals[0])} \nNet Profit: $#{format_number(@totals[1])} \nItems Sold: $#{format_number(@totals[2])}"
+      puts "Gross Sales: $#{format_number(@totals[0])} \nNet Profit: $#{format_number(@totals[1])} \nItems Sold: #{@totals[2]}"
     end
   end
  
