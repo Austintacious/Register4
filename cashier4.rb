@@ -169,7 +169,7 @@ class Cashier
   end
  
   def successful_checkout
-    @time = Time.now.strftime('%H %M %S')
+    @time = Time.now.strftime('%H:%M:%S')
     @date = DateTime.now.strftime('%Y-%m-%d')
     puts "===Thank You!==="
     print "The total change due is $#{format_number(calc_change)}\n\n"
