@@ -72,9 +72,12 @@ class Manager
   end
  
   def display_data
-    @totals = "Gross Sales: $#{format_number(@gross_sales)} \nNet Profit: $#{format_number(@net_profit)} \nItems Sold: #{@items_sold}"
-#    puts @manager_data
-    puts @totals
+    @totals = @gross_sales, @net_profit, @items_sold
+    if @totals.reduce(:+) == 0
+      puts "No sales data found."
+    else
+      puts "Gross Sales: $#{format_number(@totals[0])} \nNet Profit: $#{format_number(@totals[1])} \nItems Sold: $#{format_number(@totals[2])}"
+    end
   end
  
   def display_date_error
